@@ -1,0 +1,15 @@
+c:\Users\desrosij\Documents\GitHub\PokerHands\bin\Debug\netcoreapp2.1\PokerHands.deps.json
+c:\Users\desrosij\Documents\GitHub\PokerHands\bin\Debug\netcoreapp2.1\PokerHands.runtimeconfig.json
+c:\Users\desrosij\Documents\GitHub\PokerHands\bin\Debug\netcoreapp2.1\PokerHands.runtimeconfig.dev.json
+c:\Users\desrosij\Documents\GitHub\PokerHands\bin\Debug\netcoreapp2.1\PokerHands.dll
+c:\Users\desrosij\Documents\GitHub\PokerHands\bin\Debug\netcoreapp2.1\PokerHands.pdb
+c:\Users\desrosij\Documents\GitHub\PokerHands\obj\Debug\netcoreapp2.1\PokerHands.csprojAssemblyReference.cache
+c:\Users\desrosij\Documents\GitHub\PokerHands\obj\Debug\netcoreapp2.1\PokerHands.csproj.CoreCompileInputs.cache
+c:\Users\desrosij\Documents\GitHub\PokerHands\obj\Debug\netcoreapp2.1\PokerHands.AssemblyInfoInputs.cache
+c:\Users\desrosij\Documents\GitHub\PokerHands\obj\Debug\netcoreapp2.1\PokerHands.AssemblyInfo.cs
+c:\Users\desrosij\Documents\GitHub\PokerHands\obj\Debug\netcoreapp2.1\PokerHands.dll
+c:\Users\desrosij\Documents\GitHub\PokerHands\obj\Debug\netcoreapp2.1\PokerHands.pdb
+C:\Users\desrosij\Documents\GitHub\PokerHands\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
+C:\Users\desrosij\Documents\GitHub\PokerHands\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
+C:\Users\desrosij\Documents\GitHub\PokerHands\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
+C:\Users\desrosij\Documents\GitHub\PokerHands\bin\Debug\netcoreapp2.1\Mono.Cecil.dll

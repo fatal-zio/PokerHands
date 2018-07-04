@@ -1,18 +1,24 @@
 using Entities;
 using Common;
 using NUnit.Framework;
+using Logic;
+using System.Linq;
 
 namespace UnitTests
 {
     [TestFixture]
     public class UnitTests
     {
+
+        #region Basic
         [Test]
         public void CanTest()
         {
             Assert.AreEqual(true, true);
         }
+        #endregion
 
+        #region Card Deck
         [Test]
         public void CreateDeck()
         {
@@ -36,5 +42,30 @@ namespace UnitTests
             var deck = new CardDeck();
             Assert.AreEqual(deck.Cards.Count, Constants.NUMBER_OF_CARDS_IN_DECK);
         }
+
+        [Test]
+        public void DrawSubtractsACard()
+        {
+            var deck = new CardDeck();
+            var card = deck.DrawCard(0);
+
+            Assert.AreEqual(deck.Cards.Count, Constants.NUMBER_OF_CARDS_IN_DECK -1);
+        }
+
+        #endregion
+
+        #region Generate Hands
+
+        [Test]
+        public void GeneratePokerHands()
+        {
+            var generator = new HandGenerator();
+
+            var hands = generator.GenerateHands();
+
+            Assert.AreEqual(hands.ToList().Count, 2);
+        }
+
+        #endregion
     }
 }

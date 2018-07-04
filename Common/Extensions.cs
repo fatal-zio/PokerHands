@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Common
@@ -17,6 +19,25 @@ namespace Common
         public static bool IsNullOrEmpty(this string @this)
         {
             return string.IsNullOrEmpty(@this);
+        }
+
+        public static IEnumerable<T> GetValues<T>(this IEnumerable<Enum> @this)
+        {
+            return Enum.GetValues(typeof(T)).Cast<T>();
+        }
+
+        public static IEnumerable<TEnum> Values<TEnum>()
+        where TEnum : struct,  IComparable, IFormattable, IConvertible
+        {
+            var enumType = typeof(TEnum);
+
+            // Optional runtime check for completeness
+            if(!enumType.IsEnum)
+            {
+                throw new ArgumentException();
+            }
+
+            return Enum.GetValues(enumType).Cast<TEnum>();
         }
     }
 }

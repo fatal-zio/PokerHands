@@ -6,14 +6,14 @@ using Common;
 namespace Entities
 {
 
-    public class PlayerHand
+    public class PokerHand
     {
 
         public IEnumerable<Card> Cards { get; }
         public int HandValue { get; private set; }
         public string PlayerName { get; }
 
-        public PlayerHand(IEnumerable<Card> cards, string playerName)
+        public PokerHand(IEnumerable<Card> cards, string playerName)
         {
             var enumerable = cards as Card[] ?? cards.ToArray();
 

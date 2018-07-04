@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace Common
 {
 
-    public class Constants
+    public static class Constants
     {
         private const int nUMBER_OF_CARDS_IN_DECK = 52;
 

@@ -1,4 +1,5 @@
 using Entities;
+using Common;
 using NUnit.Framework;
 
 namespace UnitTests
@@ -27,6 +28,13 @@ namespace UnitTests
             var card = deck.DrawCard(0);
 
             Assert.IsNotNull(card);
+        }
+
+        [Test]
+        public void CardsInDeck()
+        {
+            var deck = new CardDeck();
+            Assert.AreEqual(deck.Cards.Count, Constants.NUMBER_OF_CARDS_IN_DECK);
         }
     }
 }

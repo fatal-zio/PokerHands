@@ -8,14 +8,13 @@ namespace Logic
 
     public class HandGenerator
     {
- 
         public IEnumerable<PokerHand> GenerateHands()
         {
             var hands = new List<PokerHand>();
             var deck = new CardDeck();
 
-            hands.Add(GenerateHand(ref deck, "RED"));
-            hands.Add(GenerateHand(ref deck, "BLUE"));
+            hands.Add(GenerateHand(ref deck, Constants.PLAYER_ONE_NAME));
+            hands.Add(GenerateHand(ref deck, Constants.PLAYER_TWO_NAME));
 
             return hands;
         }

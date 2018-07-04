@@ -63,7 +63,7 @@ namespace UnitTests
 
             var hands = generator.GenerateHands();
 
-            Assert.AreEqual(hands.ToList().Count, 2);
+            Assert.AreEqual(expected: 2, actual: hands.ToList().Count);
         }
 
         #endregion

@@ -7,19 +7,24 @@ namespace Logic
 
     public static class HandEvaluator
     {
-        public static string Evalutate(IEnumerable<Card> redCards, IEnumerable<Card> blueCards)
+
+        public static string Evalutate(PokerHand playerOneHand, PokerHand playertwoHand)
         {
-            if(!Validate(redCards, blueCards))
+            if (!Validate(playerOneHand, playertwoHand))
                 throw new ArgumentException();
 
-
-            return string.Empty;
+            return GetGameResult(playerOneHand, playertwoHand).ToString();
         }
 
-        private static bool Validate(IEnumerable<Card> redCards, IEnumerable<Card> blueCards)
+        private static bool Validate(PokerHand playerOneHand, PokerHand playertwoHand)
         {
 
             return true;
+        }
+
+        private static GameResult GetGameResult(PokerHand playerOneHand, PokerHand playertwoHand)
+        {
+            return new GameResult(playerOneHand, playertwoHand);
         }
     }
 

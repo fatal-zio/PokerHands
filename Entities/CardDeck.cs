@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Common;
@@ -32,8 +33,11 @@ namespace Entities
             return cards;
         }
 
-        public Card GetCard(int cardIndex)
+        public Card DrawCard(int cardIndex)
         {
+            if(cardIndex < 0 || cardIndex > Cards.Count)
+                throw new ArgumentException();
+
             var returnCard = Cards[cardIndex];
 
             Cards.RemoveAt(cardIndex);

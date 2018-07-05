@@ -1,4 +1,5 @@
 ﻿using System;
+using Logic;
 
 namespace PokerHands
 {
@@ -6,7 +7,8 @@ namespace PokerHands
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine(HandEvaluator.Evalutate( HandGenerator.GenerateHands()));
+            Console.ReadLine();
         }
     }
 }

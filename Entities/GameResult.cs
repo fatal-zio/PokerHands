@@ -8,18 +8,18 @@ namespace Entities
 
         public string Reason { get; private set; }
 
-        public GameResult(PokerHand playerOneHand, PokerHand playerTwoHand)
+        public GameResult(IEnumerable<PokerHand> pokerHands)
         {
-            WinningPlayerName = DecideWinningPlayer(playerOneHand, playerTwoHand);
-            Reason = GetOutcomeReason(playerOneHand, playerTwoHand);
+            WinningPlayerName = DecideWinningPlayer(pokerHands);
+            Reason = GetOutcomeReason(pokerHands);
         }
 
-        private string DecideWinningPlayer(PokerHand playerOneHand, PokerHand playerTwoHand)
+        private string DecideWinningPlayer(IEnumerable<PokerHand> pokerHands)
         {
             return "DRAW";
         }
 
-        private string GetOutcomeReason(PokerHand playerOneHand, PokerHand playerTwoHand)
+        private string GetOutcomeReason(IEnumerable<PokerHand> pokerHands)
         {
             return "Higher Numbers";
         }

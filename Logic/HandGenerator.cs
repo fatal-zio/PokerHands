@@ -6,9 +6,9 @@ using System;
 namespace Logic
 {
 
-    public class HandGenerator
+    public static class HandGenerator
     {
-        public IEnumerable<PokerHand> GenerateHands()
+        public static IEnumerable<PokerHand> GenerateHands()
         {
             var hands = new List<PokerHand>();
             var deck = new CardDeck();
@@ -19,25 +19,24 @@ namespace Logic
             return hands;
         }
 
-        private PokerHand GenerateHand(ref CardDeck deck, string playerName)
+        private static PokerHand GenerateHand(ref CardDeck deck, string playerName)
         {
             var cards = new List<Card>();
 
             for(var i = 0; i < Constants.NUMBER_OF_CARDS_IN_HAND; i++)
             {
-                cards.Add(deck.DrawCard(GetRandomIndex()));
+                var lastIndex = deck.Cards.Count - 1;
+                cards.Add(deck.DrawCard(GetRandomIndex(lastIndex)));
             }
 
             return new PokerHand(cards, playerName);
         }
 
-        private int GetRandomIndex()
+        private static int GetRandomIndex(int lastIndex)
         {
             var r = new Random();
-            return r.Next(0, 51);
+            return r.Next(0, lastIndex);
         }
 
     }
-
-
 }

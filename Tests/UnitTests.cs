@@ -59,9 +59,7 @@ namespace UnitTests
         [Test]
         public void GeneratePokerHands()
         {
-            var generator = new HandGenerator();
-
-            var hands = generator.GenerateHands();
+            var hands = HandGenerator.GenerateHands();
 
             Assert.AreEqual(expected: 2, actual: hands.ToList().Count);
         }

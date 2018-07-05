@@ -5,7 +5,6 @@ using System;
 
 namespace Logic
 {
-
     public static class HandGenerator
     {
         public static IEnumerable<PokerHand> GenerateHands()
@@ -23,7 +22,7 @@ namespace Logic
         {
             var cards = new List<Card>();
 
-            for(var i = 0; i < Constants.NUMBER_OF_CARDS_IN_HAND; i++)
+            for (var i = 0; i < Constants.NUMBER_OF_CARDS_IN_HAND; i++)
             {
                 var lastIndex = deck.Cards.Count - 1;
                 cards.Add(deck.DrawCard(GetRandomIndex(lastIndex)));
@@ -37,6 +36,5 @@ namespace Logic
             var r = new Random();
             return r.Next(0, lastIndex);
         }
-
     }
 }

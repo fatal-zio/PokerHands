@@ -26,12 +26,13 @@ namespace Entities
             Cards = enumerable;
             PlayerName = playerName;
 
-            SetHandValue();
+            SetValue();
         }
 
-        private void SetHandValue()
+        private void SetValue()
         {
-            HandValue = 0;
+            var r = new Random();
+            HandValue = r.Next(0, 100);
         }
     }
 }

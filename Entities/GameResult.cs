@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Entities
 {
@@ -16,7 +17,15 @@ namespace Entities
 
         private string DecideWinningPlayer(IEnumerable<PokerHand> pokerHands)
         {
-            return "DRAW";
+            var winningValue = pokerHands.OrderByDescending(o => o.HandValue).FirstOrDefault().HandValue;
+            var winningHands = pokerHands.Where(o => o.HandValue.Equals(winningValue));
+
+            if(winningHands.Count() > 1)
+            {
+                return "DRAW";
+            }
+
+            return winningHands.First().PlayerName;
         }
 
         private string GetOutcomeReason(IEnumerable<PokerHand> pokerHands)
@@ -32,7 +41,7 @@ namespace Entities
             }
             else
             {
-                return string.Format("{0) Wins! {2}.", WinningPlayerName, Reason);
+                return string.Format("{0} Wins! {1}.", WinningPlayerName, Reason);
             }
         }
     }

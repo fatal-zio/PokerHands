@@ -11,5 +11,10 @@ namespace Common
         {
             Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King
         }
+
+        public enum HandTypes
+        {
+            HighCard, Pair, TwoPairs, ThreeOfAKind, Straight, Flush, FullHouse, FourOfAKind, StraightFlush
+        }
     }
 }

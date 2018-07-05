@@ -5,10 +5,8 @@ using Common;
 
 namespace Entities
 {
-
     public class PokerHand
     {
-
         public IEnumerable<Card> Cards { get; }
         public int HandValue { get; private set; }
         public string PlayerName { get; }
@@ -31,8 +29,15 @@ namespace Entities
 
         private void SetValue()
         {
-            var r = new Random();
-            HandValue = r.Next(0, 100);
+            if(true)
+            {
+                var r = new Random();
+                HandValue = r.Next(0, 100);
+            }
+            else
+            {
+                //HandValue = (int)EvaluateValue();
+            }
         }
     }
 }

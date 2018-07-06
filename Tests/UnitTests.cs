@@ -3,6 +3,7 @@ using Common;
 using NUnit.Framework;
 using Logic;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace UnitTests
 {
@@ -63,7 +64,81 @@ namespace UnitTests
 
             Assert.AreEqual(expected: 2, actual: hands.ToList().Count);
         }
+        #endregion
 
+        #region Hand Types
+
+        [Test]
+        public void IsStraightFlush()
+        {
+            var evaluator = new HandEvaluator();
+            var hand = new PokerHand(new List<Card>(), "Blah");
+            var result = evaluator.IsStraightFlush(hand);
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void IsFourOfAKind()
+        {
+            var evaluator = new HandEvaluator();
+            var hand = new PokerHand(new List<Card>(), "Blah");
+            var result = evaluator.IsFourOfAKind(hand);
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void IsFullHouse()
+        {
+            var evaluator = new HandEvaluator();
+            var hand = new PokerHand(new List<Card>(), "Blah");
+            var result = evaluator.IsFullHouse(hand);
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void IsFlush()
+        {
+            var evaluator = new HandEvaluator();
+            var hand = new PokerHand(new List<Card>(), "Blah");
+            var result = evaluator.IsFlush(hand);
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void IsStraight()
+        {
+            var evaluator = new HandEvaluator();
+            var hand = new PokerHand(new List<Card>(), "Blah");
+            var result = evaluator.IsStraight(hand);
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void IsThreeOfAKind()
+        {
+            var evaluator = new HandEvaluator();
+            var hand = new PokerHand(new List<Card>(), "Blah");
+            var result = evaluator.IsThreeOfAKind(hand);
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void IsTwoPairs()
+        {
+            var evaluator = new HandEvaluator();
+            var hand = new PokerHand(new List<Card>(), "Blah");
+            var result = evaluator.IsTwoPairs(hand);
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void IsPair()
+        {
+            var evaluator = new HandEvaluator();
+            var hand = new PokerHand(new List<Card>(), "Blah");
+            var result = evaluator.IsPair(hand);
+            Assert.AreEqual(true, result);
+        }
         #endregion
     }
 }

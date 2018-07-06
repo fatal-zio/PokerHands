@@ -1,26 +1,28 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace Entities
 {
     public class GameResult
     {
         public string WinningPlayerName { get; private set; }
-
         public string Reason { get; private set; }
+        private IEnumerable<PokerHand> PokerHands { get; set; }
 
         public GameResult(IEnumerable<PokerHand> pokerHands)
         {
-            WinningPlayerName = DecideWinningPlayer(pokerHands);
-            Reason = GetOutcomeReason(pokerHands);
+            PokerHands = pokerHands;
+            WinningPlayerName = DecideWinningPlayer();
+            Reason = GetOutcomeReason();
         }
 
-        private string DecideWinningPlayer(IEnumerable<PokerHand> pokerHands)
+        private string DecideWinningPlayer()
         {
-            var winningValue = pokerHands.OrderByDescending(o => o.HandValue).FirstOrDefault().HandValue;
-            var winningHands = pokerHands.Where(o => o.HandValue.Equals(winningValue));
+            var winningValue = PokerHands.OrderByDescending(o => o.HandType).FirstOrDefault().HandType;
+            var winningHands = PokerHands.Where(o => o.HandType.Equals(winningValue));
 
-            if(winningHands.Count() > 1)
+            if (winningHands.Count() > 1)
             {
                 return "DRAW";
             }
@@ -28,21 +30,37 @@ namespace Entities
             return winningHands.First().PlayerName;
         }
 
-        private string GetOutcomeReason(IEnumerable<PokerHand> pokerHands)
+        private string GetOutcomeReason()
         {
             return "Higher Numbers";
         }
 
         public override string ToString()
         {
-            if(WinningPlayerName == "DRAW")
+            var sb = new StringBuilder();
+
+            if (WinningPlayerName == "DRAW")
             {
-                return WinningPlayerName;
+                sb.AppendLine("DRAW!");
             }
             else
             {
-                return string.Format("{0} Wins! {1}.", WinningPlayerName, Reason);
+                sb.AppendLine(string.Format("{0} Wins! {1}.", WinningPlayerName, Reason));
             }
+
+            foreach (var hand in PokerHands)
+            {
+                sb.AppendLine(hand.PlayerName);
+
+                foreach (var card in hand.Cards)
+                {
+                    sb.Append(string.Format("{0}of{1} ", card.Name, card.Suit));
+                }
+
+                sb.AppendLine();
+            }
+
+            return sb.ToString();
         }
     }
 }

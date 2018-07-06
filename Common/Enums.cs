@@ -4,7 +4,7 @@ namespace Common
     {
         public enum Suits
         {
-            C, D, H, S
+            Clubs, Diamonds, Hearts, Spades
         }
 
         public enum CardValues

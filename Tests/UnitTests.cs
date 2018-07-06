@@ -4,6 +4,8 @@ using NUnit.Framework;
 using Logic;
 using System.Linq;
 using System.Collections.Generic;
+using static Common.Enums.CardValues;
+using static Common.Enums.Suits;
 
 namespace UnitTests
 {
@@ -71,8 +73,16 @@ namespace UnitTests
         [Test]
         public void IsStraightFlush()
         {
+            var cards = new List<Card>();
+
+            cards.Add(new Card(Two, C));
+            cards.Add(new Card(Three, C));
+            cards.Add(new Card(Four, C));
+            cards.Add(new Card(Five, C));
+            cards.Add(new Card(Six, C));
+
             var evaluator = new HandEvaluator();
-            var hand = new PokerHand(new List<Card>(), "Blah");
+            var hand = new PokerHand(cards, "Blah");
             var result = evaluator.IsStraightFlush(hand);
             Assert.AreEqual(true, result);
         }
@@ -98,8 +108,16 @@ namespace UnitTests
         [Test]
         public void IsFlush()
         {
+            var cards = new List<Card>();
+
+            cards.Add(new Card(Two, C));
+            cards.Add(new Card(Three, C));
+            cards.Add(new Card(Nine, C));
+            cards.Add(new Card(Five, C));
+            cards.Add(new Card(Six, C));
+
             var evaluator = new HandEvaluator();
-            var hand = new PokerHand(new List<Card>(), "Blah");
+            var hand = new PokerHand(cards, "Blah");
             var result = evaluator.IsFlush(hand);
             Assert.AreEqual(true, result);
         }
@@ -107,8 +125,16 @@ namespace UnitTests
         [Test]
         public void IsStraight()
         {
+            var cards = new List<Card>();
+
+            cards.Add(new Card(Two, C));
+            cards.Add(new Card(Three, C));
+            cards.Add(new Card(Four, H));
+            cards.Add(new Card(Five, C));
+            cards.Add(new Card(Six, C));
+
             var evaluator = new HandEvaluator();
-            var hand = new PokerHand(new List<Card>(), "Blah");
+            var hand = new PokerHand(cards, "Blah");
             var result = evaluator.IsStraight(hand);
             Assert.AreEqual(true, result);
         }

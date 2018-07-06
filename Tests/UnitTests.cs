@@ -90,8 +90,16 @@ namespace UnitTests
         [Test]
         public void IsFourOfAKind()
         {
+            var cards = new List<Card>();
+
+            cards.Add(new Card(Two, C));
+            cards.Add(new Card(Two, H));
+            cards.Add(new Card(Two, D));
+            cards.Add(new Card(Two, S));
+            cards.Add(new Card(Six, C));
+
             var evaluator = new HandEvaluator();
-            var hand = new PokerHand(new List<Card>(), "Blah");
+            var hand = new PokerHand(cards, "Blah");
             var result = evaluator.IsFourOfAKind(hand);
             Assert.AreEqual(true, result);
         }
@@ -99,8 +107,16 @@ namespace UnitTests
         [Test]
         public void IsFullHouse()
         {
+            var cards = new List<Card>();
+
+            cards.Add(new Card(Two, C));
+            cards.Add(new Card(Two, H));
+            cards.Add(new Card(Two, D));
+            cards.Add(new Card(Three, S));
+            cards.Add(new Card(Three, C));
+
             var evaluator = new HandEvaluator();
-            var hand = new PokerHand(new List<Card>(), "Blah");
+            var hand = new PokerHand(cards, "Blah");
             var result = evaluator.IsFullHouse(hand);
             Assert.AreEqual(true, result);
         }
@@ -142,8 +158,16 @@ namespace UnitTests
         [Test]
         public void IsThreeOfAKind()
         {
+            var cards = new List<Card>();
+
+            cards.Add(new Card(Two, C));
+            cards.Add(new Card(Two, H));
+            cards.Add(new Card(Two, D));
+            cards.Add(new Card(Three, S));
+            cards.Add(new Card(Five, C));
+
             var evaluator = new HandEvaluator();
-            var hand = new PokerHand(new List<Card>(), "Blah");
+            var hand = new PokerHand(cards, "Blah");
             var result = evaluator.IsThreeOfAKind(hand);
             Assert.AreEqual(true, result);
         }
@@ -151,8 +175,16 @@ namespace UnitTests
         [Test]
         public void IsTwoPairs()
         {
+            var cards = new List<Card>();
+
+            cards.Add(new Card(Two, C));
+            cards.Add(new Card(Two, H));
+            cards.Add(new Card(Three, D));
+            cards.Add(new Card(Three, S));
+            cards.Add(new Card(Five, C));
+
             var evaluator = new HandEvaluator();
-            var hand = new PokerHand(new List<Card>(), "Blah");
+            var hand = new PokerHand(cards, "Blah");
             var result = evaluator.IsTwoPairs(hand);
             Assert.AreEqual(true, result);
         }
@@ -160,8 +192,16 @@ namespace UnitTests
         [Test]
         public void IsPair()
         {
+            var cards = new List<Card>();
+
+            cards.Add(new Card(Two, C));
+            cards.Add(new Card(Two, H));
+            cards.Add(new Card(Three, D));
+            cards.Add(new Card(Seven, S));
+            cards.Add(new Card(Five, C));
+
             var evaluator = new HandEvaluator();
-            var hand = new PokerHand(new List<Card>(), "Blah");
+            var hand = new PokerHand(cards, "Blah");
             var result = evaluator.IsPair(hand);
             Assert.AreEqual(true, result);
         }

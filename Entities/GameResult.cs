@@ -14,7 +14,6 @@ namespace Entities
         {
             PokerHands = pokerHands;
             WinningPlayerName = DecideWinningPlayer();
-            Reason = GetOutcomeReason();
         }
 
         private string DecideWinningPlayer()
@@ -27,12 +26,16 @@ namespace Entities
                 return "DRAW";
             }
 
+            Reason = winningHands.First().HandType.ToString();
+
             return winningHands.First().PlayerName;
         }
 
-        private string GetOutcomeReason()
+        private void SettleDraw()
         {
-            return "Higher Numbers";
+
+
+
         }
 
         public override string ToString()

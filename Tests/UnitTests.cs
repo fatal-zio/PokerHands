@@ -6,6 +6,7 @@ using System.Linq;
 using System.Collections.Generic;
 using static Common.Enums.CardValues;
 using static Common.Enums.Suits;
+using static Common.Enums.HandTypes;
 
 namespace UnitTests
 {
@@ -70,141 +71,133 @@ namespace UnitTests
 
         #region Hand Types
 
-        // [Test]
-        // public void IsStraightFlush()
-        // {
-        //     var cards = new List<Card>();
+        [Test]
+        public void IsStraightFlush()
+        {
+            var cards = new List<Card>();
 
-        //     cards.Add(new Card(Two, C));
-        //     cards.Add(new Card(Three, C));
-        //     cards.Add(new Card(Four, C));
-        //     cards.Add(new Card(Five, C));
-        //     cards.Add(new Card(Six, C));
+            cards.Add(new Card(Two, Clubs));
+            cards.Add(new Card(Three, Clubs));
+            cards.Add(new Card(Four, Clubs));
+            cards.Add(new Card(Five, Clubs));
+            cards.Add(new Card(Six, Clubs));
 
-        //     var evaluator = new HandEvaluator();
-        //     var hand = new PokerHand(cards, "Blah");
-        //     var result = evaluator.IsStraightFlush(hand);
-        //     Assert.AreEqual(true, result);
-        // }
+            var evaluator = new HandEvaluator();
+            var hand = new PokerHand(cards, "Blah");
+            Assert.AreEqual(StraightFlush, hand.HandType);
+        }
 
-        // [Test]
-        // public void IsFourOfAKind()
-        // {
-        //     var cards = new List<Card>();
+        [Test]
+        public void IsFourOfAKind()
+        {
+            var cards = new List<Card>();
 
-        //     cards.Add(new Card(Two, C));
-        //     cards.Add(new Card(Two, H));
-        //     cards.Add(new Card(Two, D));
-        //     cards.Add(new Card(Two, S));
-        //     cards.Add(new Card(Six, C));
+            cards.Add(new Card(Two, Clubs));
+            cards.Add(new Card(Two, Hearts));
+            cards.Add(new Card(Two, Diamonds));
+            cards.Add(new Card(Two, Spades));
+            cards.Add(new Card(Six, Clubs));
 
-        //     var evaluator = new HandEvaluator();
-        //     var hand = new PokerHand(cards, "Blah");
-        //     var result = evaluator.IsFourOfAKind(hand);
-        //     Assert.AreEqual(true, result);
-        // }
+            var evaluator = new HandEvaluator();
+            var hand = new PokerHand(cards, "Blah");
+            Assert.AreEqual(FourOfAKind, hand.HandType);
+        }
 
-        // [Test]
-        // public void IsFullHouse()
-        // {
-        //     var cards = new List<Card>();
+        [Test]
+        public void IsFullHouse()
+        {
+            var cards = new List<Card>();
 
-        //     cards.Add(new Card(Two, C));
-        //     cards.Add(new Card(Two, H));
-        //     cards.Add(new Card(Two, D));
-        //     cards.Add(new Card(Three, S));
-        //     cards.Add(new Card(Three, C));
+            cards.Add(new Card(Two, Clubs));
+            cards.Add(new Card(Two, Hearts));
+            cards.Add(new Card(Two, Diamonds));
+            cards.Add(new Card(Three, Spades));
+            cards.Add(new Card(Three, Clubs));
 
-        //     var evaluator = new HandEvaluator();
-        //     var hand = new PokerHand(cards, "Blah");
-        //     var result = evaluator.IsFullHouse(hand);
-        //     Assert.AreEqual(true, result);
-        // }
+            var evaluator = new HandEvaluator();
+            var hand = new PokerHand(cards, "Blah");
+            Assert.AreEqual(FullHouse, hand.HandType);
+        }
 
-        // [Test]
-        // public void IsFlush()
-        // {
-        //     var cards = new List<Card>();
+        [Test]
+        public void IsFlush()
+        {
+            var cards = new List<Card>();
 
-        //     cards.Add(new Card(Two, C));
-        //     cards.Add(new Card(Three, C));
-        //     cards.Add(new Card(Nine, C));
-        //     cards.Add(new Card(Five, C));
-        //     cards.Add(new Card(Six, C));
+            cards.Add(new Card(Two, Clubs));
+            cards.Add(new Card(Three, Clubs));
+            cards.Add(new Card(Nine, Clubs));
+            cards.Add(new Card(Five, Clubs));
+            cards.Add(new Card(Six, Clubs));
 
-        //     var evaluator = new HandEvaluator();
-        //     var hand = new PokerHand(cards, "Blah");
-        //     var result = evaluator.IsFlush(hand);
-        //     Assert.AreEqual(true, result);
-        // }
+            var evaluator = new HandEvaluator();
+            var hand = new PokerHand(cards, "Blah");
+            Assert.AreEqual(Flush, hand.HandType);
+        }
 
-        // [Test]
-        // public void IsStraight()
-        // {
-        //     var cards = new List<Card>();
+        [Test]
+        public void IsStraight()
+        {
+            var cards = new List<Card>();
 
-        //     cards.Add(new Card(Two, C));
-        //     cards.Add(new Card(Three, C));
-        //     cards.Add(new Card(Four, H));
-        //     cards.Add(new Card(Five, C));
-        //     cards.Add(new Card(Six, C));
+            cards.Add(new Card(Two, Clubs));
+            cards.Add(new Card(Three, Clubs));
+            cards.Add(new Card(Four, Hearts));
+            cards.Add(new Card(Five, Clubs));
+            cards.Add(new Card(Six, Clubs));
 
-        //     var evaluator = new HandEvaluator();
-        //     var hand = new PokerHand(cards, "Blah");
-        //     var result = evaluator.IsStraight(hand);
-        //     Assert.AreEqual(true, result);
-        // }
+            var evaluator = new HandEvaluator();
+            var hand = new PokerHand(cards, "Blah");
+            Assert.AreEqual(Straight, hand.HandType);
+        }
 
-        // [Test]
-        // public void IsThreeOfAKind()
-        // {
-        //     var cards = new List<Card>();
+        [Test]
+        public void IsThreeOfAKind()
+        {
+            var cards = new List<Card>();
 
-        //     cards.Add(new Card(Two, C));
-        //     cards.Add(new Card(Two, H));
-        //     cards.Add(new Card(Two, D));
-        //     cards.Add(new Card(Three, S));
-        //     cards.Add(new Card(Five, C));
+            cards.Add(new Card(Two, Clubs));
+            cards.Add(new Card(Two, Hearts));
+            cards.Add(new Card(Two, Diamonds));
+            cards.Add(new Card(Three, Spades));
+            cards.Add(new Card(Five, Clubs));
 
-        //     var evaluator = new HandEvaluator();
-        //     var hand = new PokerHand(cards, "Blah");
-        //     var result = evaluator.IsThreeOfAKind(hand);
-        //     Assert.AreEqual(true, result);
-        // }
+            var evaluator = new HandEvaluator();
+            var hand = new PokerHand(cards, "Blah");
+            Assert.AreEqual(ThreeOfAKind, hand.HandType);
+        }
 
-        // [Test]
-        // public void IsTwoPairs()
-        // {
-        //     var cards = new List<Card>();
+        [Test]
+        public void IsTwoPairs()
+        {
+            var cards = new List<Card>();
 
-        //     cards.Add(new Card(Two, C));
-        //     cards.Add(new Card(Two, H));
-        //     cards.Add(new Card(Three, D));
-        //     cards.Add(new Card(Three, S));
-        //     cards.Add(new Card(Five, C));
+            cards.Add(new Card(Two, Clubs));
+            cards.Add(new Card(Two, Hearts));
+            cards.Add(new Card(Three, Diamonds));
+            cards.Add(new Card(Three, Spades));
+            cards.Add(new Card(Five, Clubs));
 
-        //     var evaluator = new HandEvaluator();
-        //     var hand = new PokerHand(cards, "Blah");
-        //     var result = evaluator.IsTwoPairs(hand);
-        //     Assert.AreEqual(true, result);
-        // }
+            var evaluator = new HandEvaluator();
+            var hand = new PokerHand(cards, "Blah");
+            Assert.AreEqual(TwoPairs, hand.HandType);
+        }
 
-        // [Test]
-        // public void IsPair()
-        // {
-        //     var cards = new List<Card>();
+        [Test]
+        public void IsPair()
+        {
+            var cards = new List<Card>();
 
-        //     cards.Add(new Card(Two, C));
-        //     cards.Add(new Card(Two, H));
-        //     cards.Add(new Card(Three, D));
-        //     cards.Add(new Card(Seven, S));
-        //     cards.Add(new Card(Five, C));
+            cards.Add(new Card(Two, Clubs));
+            cards.Add(new Card(Two, Hearts));
+            cards.Add(new Card(Three, Diamonds));
+            cards.Add(new Card(Seven, Spades));
+            cards.Add(new Card(Five, Clubs));
 
-        //     var evaluator = new HandEvaluator();
-        //     var hand = new PokerHand(cards, "Blah");
-        //     var result = evaluator.IsPair(hand);
-        //     Assert.AreEqual(true, result);
-        // }
+            var evaluator = new HandEvaluator();
+            var hand = new PokerHand(cards, "Blah");
+            Assert.AreEqual(Pair, hand.HandType);
+        }
         #endregion
     }
 }

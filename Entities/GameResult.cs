@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using static Common.Enums.HandTypes;
 
 namespace Entities
 {
@@ -23,20 +24,69 @@ namespace Entities
 
             if (winningHands.Count() > 1)
             {
-                return "DRAW";
+                return SettleDraw();
             }
+            else
+            {
+                Reason = winningHands.First().HandType.ToString();
 
-            Reason = winningHands.First().HandType.ToString();
-
-            return winningHands.First().PlayerName;
+                return winningHands.First().PlayerName;
+            }
         }
 
-        private void SettleDraw()
+        private string SettleDraw()
         {
+            var type = PokerHands.FirstOrDefault().HandType;
 
+            return "DRAW";
 
+            //HighCard, Pair, TwoPairs, ThreeOfAKind, Straight, Flush, FullHouse, FourOfAKind, StraightFlush
+
+            // switch(type)
+            // {
+            //     case StraightFlush:
+
+            //     break;
+
+            //     case FourOfAKind:
+
+            //     break;
+
+            //     case FullHouse:
+
+            //     break;
+
+            //     case Flush:
+                
+            //     break;
+
+            //     case Straight:
+
+            //     break;
+
+            //     case ThreeOfAKind:
+
+            //     break;
+
+            //     case TwoPairs:
+
+            //     break;
+
+            //     case Pair:
+
+            //     break;
+
+            //     case HighCard:
+
+            //     break;
+
+            //     default:
+            //         return "DRAW";
+            // }
 
         }
+
+
 
         public override string ToString()
         {
@@ -48,7 +98,7 @@ namespace Entities
             }
             else
             {
-                sb.AppendLine(string.Format("{0} Wins! {1}.", WinningPlayerName, Reason));
+                sb.AppendLine(string.Format("{0} Wins! {1}!", WinningPlayerName, Reason));
             }
 
             foreach (var hand in PokerHands)

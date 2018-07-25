@@ -33,16 +33,20 @@ namespace Entities
             return cards;
         }
 
-        public Card DrawCard(int cardIndex)
+        public Card DrawCard()
         {
-            if(cardIndex < 0 || cardIndex > Cards.Count)
-                throw new ArgumentException();
+            var cardIndex = GetRandomIndex();
 
             var returnCard = Cards[cardIndex];
 
             Cards.RemoveAt(cardIndex);
 
             return returnCard;
+        }
+        private int GetRandomIndex()
+        {
+            var r = new Random();
+            return r.Next(0, Cards.Count -1);
         }
     }
 }

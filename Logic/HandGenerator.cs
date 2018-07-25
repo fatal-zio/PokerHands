@@ -24,17 +24,12 @@ namespace Logic
 
             for (var i = 0; i < Constants.NUMBER_OF_CARDS_IN_HAND; i++)
             {
-                var lastIndex = deck.Cards.Count - 1;
-                cards.Add(deck.DrawCard(GetRandomIndex(lastIndex)));
+                cards.Add(deck.DrawCard());
             }
 
             return new PokerHand(cards, playerName);
         }
 
-        private static int GetRandomIndex(int lastIndex)
-        {
-            var r = new Random();
-            return r.Next(0, lastIndex);
-        }
+        
     }
 }

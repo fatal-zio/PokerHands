@@ -35,7 +35,7 @@ namespace UnitTests
         public void DrawCard()
         {
             var deck = new CardDeck();
-            var card = deck.DrawCard(0);
+            var card = deck.DrawCard();
 
             Assert.IsNotNull(card);
         }
@@ -51,7 +51,7 @@ namespace UnitTests
         public void DrawSubtractsACard()
         {
             var deck = new CardDeck();
-            var card = deck.DrawCard(0);
+            var card = deck.DrawCard();
 
             Assert.AreEqual(deck.Cards.Count, Constants.NUMBER_OF_CARDS_IN_DECK -1);
         }

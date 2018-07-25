@@ -5754,29 +5754,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\fatal\\.nuget\\packages\\": {},
+    "C:\\Users\\jdesrosiers3\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\fatal\\Documents\\GitHub\\PokerHands\\PokerHands.csproj",
+      "projectUniqueName": "c:\\Users\\jdesrosiers3\\Documents\\GitHub\\PokerHands\\PokerHands.csproj",
       "projectName": "PokerHands",
-      "projectPath": "c:\\Users\\fatal\\Documents\\GitHub\\PokerHands\\PokerHands.csproj",
-      "packagesPath": "C:\\Users\\fatal\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\fatal\\Documents\\GitHub\\PokerHands\\obj\\",
+      "projectPath": "c:\\Users\\jdesrosiers3\\Documents\\GitHub\\PokerHands\\PokerHands.csproj",
+      "packagesPath": "C:\\Users\\jdesrosiers3\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\jdesrosiers3\\Documents\\GitHub\\PokerHands\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\fatal\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\jdesrosiers3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://www.myget.org/F/aspnet-contrib/api/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.1": {

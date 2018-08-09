@@ -9,7 +9,8 @@ namespace Entities
     {
         public string WinningPlayerName { get; private set; }
         public string Reason { get; private set; }
-        private IEnumerable<PokerHand> PokerHands { get; set; }
+
+        public IEnumerable<PokerHand> PokerHands { get; private set; }
 
         public GameResult(IEnumerable<PokerHand> pokerHands)
         {
@@ -37,56 +38,103 @@ namespace Entities
         private string SettleDraw()
         {
             var type = PokerHands.FirstOrDefault().HandType;
+            var retVal = "DRAW";
 
-            return "DRAW";
+            switch (type)
+            {
+                case StraightFlush:
+                    retVal = DecideStraightFlushDraw();
+                    break;
 
-            //HighCard, Pair, TwoPairs, ThreeOfAKind, Straight, Flush, FullHouse, FourOfAKind, StraightFlush
+                case FourOfAKind:
+                    retVal = DecideFourOfAKindDraw();
+                    break;
 
-            // switch(type)
-            // {
-            //     case StraightFlush:
+                case FullHouse:
+                    retVal = DecideFullHouseDraw();
+                    break;
 
-            //     break;
+                case Flush:
+                    retVal = DecideFlushDraw();
+                    break;
 
-            //     case FourOfAKind:
+                case Straight:
+                    retVal = DecideStraightDraw();
+                    break;
 
-            //     break;
+                case ThreeOfAKind:
+                    retVal = DecideThreeOfAKindDraw();
+                    break;
 
-            //     case FullHouse:
+                case TwoPairs:
+                    retVal = DecideTwoPairDraw();
+                    break;
 
-            //     break;
+                case Pair:
+                    retVal = DecidePairDraw();
+                    break;
 
-            //     case Flush:
-                
-            //     break;
+                case HighCard:
+                    retVal = DecideHighCardDraw();
+                    break;
+            }
 
-            //     case Straight:
-
-            //     break;
-
-            //     case ThreeOfAKind:
-
-            //     break;
-
-            //     case TwoPairs:
-
-            //     break;
-
-            //     case Pair:
-
-            //     break;
-
-            //     case HighCard:
-
-            //     break;
-
-            //     default:
-            //         return "DRAW";
-            // }
-
+            return retVal;
         }
 
+        private string DecideHighCardDraw()
+        {
 
+            return "DRAW";
+        }
+
+        private string DecidePairDraw()
+        {
+
+            return "DRAW";
+        }
+
+        private string DecideTwoPairDraw()
+        {
+
+            return "DRAW";
+        }
+
+        private string DecideThreeOfAKindDraw()
+        {
+
+            return "DRAW";
+        }
+
+        private string DecideStraightDraw()
+        {
+
+            return "DRAW";
+        }
+
+        private string DecideFlushDraw()
+        {
+
+            return "DRAW";
+        }
+
+        private string DecideFullHouseDraw()
+        {
+
+            return "DRAW";
+        }
+
+        private string DecideFourOfAKindDraw()
+        {
+
+            return "DRAW";
+        }
+
+        private string DecideStraightFlushDraw()
+        {
+
+            return "DRAW";
+        }
 
         public override string ToString()
         {

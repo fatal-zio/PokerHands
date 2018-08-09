@@ -19,7 +19,6 @@ namespace Logic
 
         private static bool Validate(IEnumerable<PokerHand> pokerHands)
         {
-
             return true;
         }
 
